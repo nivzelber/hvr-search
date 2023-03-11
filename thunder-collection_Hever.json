@@ -1,0 +1,23 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Hever",
+    "dateExported": "2023-03-11T22:30:05.116Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "3995161f-fc40-43da-9194-e385a55a058d",
+            "colId": "b0df43a7-20f1-467a-9627-80ac6a70d96e",
+            "containerId": "",
+            "name": "blue branches",
+            "url": "https://www.hvr.co.il/bs2/datasets/teamimcard_branches.json",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-03-11T18:54:44.268Z",
+            "modified": "2023-03-11T18:54:44.268Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
