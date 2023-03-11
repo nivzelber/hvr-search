@@ -1,12 +1,12 @@
-import * as React from "react";
-import Document, { Html, Head, Main, NextScript } from "next/document";
 import createEmotionServer from "@emotion/server/create-instance";
+import Document, { Head, Html, Main, NextScript } from "next/document";
+
 import { createEmotionCache } from "../styles/setup/createEmotionCache";
 
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en">
+      <Html lang="he" dir="rtl">
         <Head>
           <link rel="shortcut icon" href="/static/favicon.ico" />
           <link
