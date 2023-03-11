@@ -1,12 +1,12 @@
 import "../styles/globals.css";
-import * as React from "react";
-import Head from "next/head";
-import { createTheme } from "@mui/material/styles";
-import { AppProps } from "next/app";
-import { ThemeProvider } from "@mui/material/styles";
+
+import { CacheProvider, EmotionCache } from "@emotion/react";
 import { green } from "@mui/material/colors";
 import CssBaseline from "@mui/material/CssBaseline";
-import { CacheProvider, EmotionCache } from "@emotion/react";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { AppProps } from "next/app";
+import Head from "next/head";
+
 import { createEmotionCache } from "../styles/setup/createEmotionCache";
 
 // Client-side cache, shared for the whole session of the user in the browser.
