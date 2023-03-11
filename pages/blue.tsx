@@ -1,4 +1,5 @@
 import { DataGrid, GridColDef, GridRowsProp } from "@mui/x-data-grid";
+import axios from "axios";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 
@@ -35,10 +36,9 @@ const LOGO_BASE_URL = "https://www.hvr.co.il/img_hvr/Gift_card_teamim/";
 const BRANCHES_REVALIDATE_INTERVAL = 60 * 60; // In seconds
 
 export const getStaticProps: GetStaticProps<StaticProps> = async _context => {
-  const restaurantsResponse = await fetch(BRANCHES_URL);
-  const json: { branch: RawBranch[] } = await restaurantsResponse.json();
+  const response = await axios.get<{ branch: RawBranch[] }>(BRANCHES_URL);
 
-  const branches: Branch[] = json.branch.map(branch => ({
+  const branches: Branch[] = response.data.branch.map(branch => ({
     id: branch.name + branch.address,
     ...branch
   }));
