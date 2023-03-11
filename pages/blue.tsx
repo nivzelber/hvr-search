@@ -4,7 +4,9 @@ import Head from "next/head";
 
 import type { NextPage } from "next";
 
-interface Branch {
+// NOTE: this is not the full structure of `branch`
+// Most of it is not needed
+interface RawBranch {
   img: string;
   name: string;
   desc: string;
@@ -20,6 +22,10 @@ interface Branch {
   search_words: string;
 }
 
+interface Branch extends RawBranch {
+  id: string;
+}
+
 interface StaticProps {
   branches: Branch[];
 }
@@ -28,10 +34,14 @@ const BRANCHES_URL = "https://www.hvr.co.il/bs2/datasets/teamimcard_branches.jso
 const LOGO_BASE_URL = "https://www.hvr.co.il/img_hvr/Gift_card_teamim/";
 const BRANCHES_REVALIDATE_INTERVAL = 60 * 60; // In seconds
 
-export const getStaticProps: GetStaticProps<StaticProps> = async context => {
+export const getStaticProps: GetStaticProps<StaticProps> = async _context => {
   const restaurantsResponse = await fetch(BRANCHES_URL);
-  const json = await restaurantsResponse.json();
-  const branches: Branch[] = json.branch;
+  const json: { branch: RawBranch[] } = await restaurantsResponse.json();
+
+  const branches: Branch[] = json.branch.map(branch => ({
+    id: branch.name + branch.address,
+    ...branch
+  }));
 
   return {
     props: {
@@ -53,15 +63,15 @@ const columns: GridColDef<Branch>[] = [
     headerName: "שם",
     width: 500,
     renderCell: ({ row: branch }) => {
-      console.log(branch.website);
       return (
         <div>
           {/* '//' is needed since most URL's come without the http(s) prefix */}
-          <a href={"//" + branch.website} target="_blank">
+          <a href={"//" + branch.website} target="_blank" rel="noreferrer">
             {branch.name}
           </a>
           <p>
-            {branch.category} - {branch.type?.split(",").join(" | ")}
+            {branch.category}
+            {branch.type && " - " + branch.type.split(",").join(" | ")}
           </p>
         </div>
       );
@@ -83,11 +93,9 @@ const columns: GridColDef<Branch>[] = [
 
 type BlueProps = StaticProps & {};
 
-const Blue: NextPage = ({ branches }: BlueProps) => {
-  const rows: GridRowsProp<Branch> = branches.map((branch, id) => ({
-    id,
-    ...branch
-  }));
+const Blue: NextPage<BlueProps> = ({ branches }) => {
+  const rows: GridRowsProp<Branch> = branches;
+
   return (
     <div>
       <Head>
@@ -96,8 +104,10 @@ const Blue: NextPage = ({ branches }: BlueProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main style={{ height: "100vh", width: "100%" }}>
-        <DataGrid rows={rows} columns={columns} />
+      <main>
+        <div style={{ height: "100vh", width: "100%" }}>
+          <DataGrid rows={rows} columns={columns} />
+        </div>
       </main>
     </div>
   );
