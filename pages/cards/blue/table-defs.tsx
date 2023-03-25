@@ -28,7 +28,7 @@ export const columns: GridColDef<Branch>[] = [
   {
     field: "name",
     headerName: "שם",
-    ...colSizeProps,
+    flex: 2,
     renderCell: ({ row: branch }) => {
       return (
         <CellWrapper>
@@ -44,17 +44,15 @@ export const columns: GridColDef<Branch>[] = [
   {
     field: "details",
     headerName: "פרטים",
-    ...colSizeProps,
+    flex: 3,
+
     renderCell: ({ row: branch }) => (
       <CellWrapper>
-        <p>{branch.address}</p>
+        <p>
+          {branch.city} | {branch.address}
+        </p>
         <a href={`tel:${branch.phone}`}>{branch.phone}</a>
       </CellWrapper>
     )
-  },
-  {
-    field: "desc",
-    headerName: "הערות",
-    ...colSizeProps
   }
 ];
