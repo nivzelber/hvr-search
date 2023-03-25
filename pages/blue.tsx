@@ -51,17 +51,22 @@ export const getStaticProps: GetStaticProps<StaticProps> = async _context => {
   };
 };
 
+const colSizeProps: Partial<GridColDef<Branch>> = {
+  flex: 1
+};
+
 const columns: GridColDef<Branch>[] = [
   {
     field: "img",
     headerName: "",
-    width: 150,
+    flex: 0,
     renderCell: ({ row: branch }) => <img src={LOGO_BASE_URL + branch.img} alt={branch.name} />
   },
   {
     field: "name",
     headerName: "שם",
-    width: 500,
+    ...colSizeProps,
+
     renderCell: ({ row: branch }) => {
       return (
         <div>
@@ -80,7 +85,7 @@ const columns: GridColDef<Branch>[] = [
   {
     field: "details",
     headerName: "פרטים",
-    width: 500,
+    ...colSizeProps,
     renderCell: ({ row: branch }) => (
       <div>
         <p>{branch.address}</p>
@@ -88,7 +93,11 @@ const columns: GridColDef<Branch>[] = [
       </div>
     )
   },
-  { field: "desc", headerName: "הערות", width: 500 }
+  {
+    field: "desc",
+    headerName: "הערות",
+    ...colSizeProps
+  }
 ];
 
 type BlueProps = StaticProps & {};
