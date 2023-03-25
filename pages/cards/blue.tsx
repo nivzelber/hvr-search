@@ -3,12 +3,11 @@ import axios from "axios";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 
-import { BranchesTable } from "../../../components/branches-table";
+import { BranchesTable } from "../../components/branches-table";
+import { BRANCHES_REVALIDATE_INTERVAL, BRANCHES_URL } from "../../components/pages/blue/consts";
+import { columns } from "../../components/pages/blue/table-defs";
 
-import { BRANCHES_REVALIDATE_INTERVAL, BRANCHES_URL } from "./consts";
-import { columns } from "./table-defs";
-
-import type { RawBranch, Branch } from "./branch";
+import type { RawBranch, Branch } from "../../components/pages/blue/branch";
 
 import type { NextPage } from "next";
 interface StaticProps {

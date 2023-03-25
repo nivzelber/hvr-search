@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import { CardsRouter } from "../components/cards-router";
+import { Index } from "../components/pages/index";
 
 import type { NextPage } from "next";
 const Home: NextPage = () => {
@@ -13,7 +13,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <CardsRouter />
+        <Index />
       </main>
     </div>
   );
