@@ -1,14 +1,14 @@
 import { GridColDef } from "@mui/x-data-grid";
-import Image, { ImageLoader } from "next/image";
+import Image from "next/image";
 
 import { BranchLink } from "../../../components/branches-table/branch-link";
+import { makeImageLoader } from "../../../utils/images/makeImageLoader";
 
 import { CellWrapper } from "./blue.styled";
 import { LOGO_BASE_URL } from "./consts";
 
 import type { Branch } from "./branch";
-
-const imageLoader: ImageLoader = ({ src }) => LOGO_BASE_URL + src;
+const imageLoader = makeImageLoader(LOGO_BASE_URL);
 
 const colSizeProps: Partial<GridColDef<Branch>> = {
   flex: 1
