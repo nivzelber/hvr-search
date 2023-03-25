@@ -14,6 +14,7 @@ export interface RawBranch {
   is_new: string;
   website: string;
   search_words: string;
+  f_name: string; // used for full text search
 }
 
 export interface Branch extends RawBranch {
