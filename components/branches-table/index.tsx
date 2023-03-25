@@ -20,3 +20,4 @@ export function BranchesTable<T extends GridValidRowModel>({
 }
 
 export * from "./branch-link";
+export * from "./styles";

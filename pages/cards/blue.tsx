@@ -3,8 +3,9 @@ import axios from "axios";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 
+import { BRANCHES_REVALIDATE_INTERVAL } from "../../common/constants";
 import { BranchesTable } from "../../components/branches-table";
-import { BRANCHES_REVALIDATE_INTERVAL, BRANCHES_URL } from "../../components/pages/blue/consts";
+import { BRANCHES_URL } from "../../components/pages/blue/consts";
 import { columns } from "../../components/pages/blue/table-defs";
 
 import type { RawBranch, Branch } from "../../components/pages/blue/branch";
