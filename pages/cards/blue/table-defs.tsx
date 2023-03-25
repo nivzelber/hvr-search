@@ -1,6 +1,7 @@
 import { GridColDef } from "@mui/x-data-grid";
 import Image, { ImageLoader } from "next/image";
 
+import { CellWrapper } from "./blue.styled";
 import { LOGO_BASE_URL } from "./consts";
 
 import type { Branch } from "./branch";
@@ -27,7 +28,7 @@ export const columns: GridColDef<Branch>[] = [
 
     renderCell: ({ row: branch }) => {
       return (
-        <div>
+        <CellWrapper>
           {/* '//' is needed since most URL's come without the http(s) prefix */}
           <a href={"//" + branch.website} target="_blank" rel="noreferrer">
             {branch.name}
@@ -36,7 +37,7 @@ export const columns: GridColDef<Branch>[] = [
             {branch.category}
             {branch.type && " - " + branch.type.split(",").join(" | ")}
           </p>
-        </div>
+        </CellWrapper>
       );
     }
   },
@@ -45,10 +46,10 @@ export const columns: GridColDef<Branch>[] = [
     headerName: "פרטים",
     ...colSizeProps,
     renderCell: ({ row: branch }) => (
-      <div>
+      <CellWrapper>
         <p>{branch.address}</p>
         <a href={`tel:${branch.phone}`}>{branch.phone}</a>
-      </div>
+      </CellWrapper>
     )
   },
   {
