@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "Hever",
-    "dateExported": "2023-03-11T22:30:05.116Z",
+    "dateExported": "2023-03-25T19:12:42.007Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -15,6 +15,20 @@
             "sortNum": 10000,
             "created": "2023-03-11T18:54:44.268Z",
             "modified": "2023-03-11T18:54:44.268Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "5c840027-04ab-47b7-ac69-3461d43e3176",
+            "colId": "b0df43a7-20f1-467a-9627-80ac6a70d96e",
+            "containerId": "",
+            "name": "yellow branches",
+            "url": "https://www.hvr.co.il/bs2/datasets/giftcard.json",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-03-25T19:12:31.192Z",
+            "modified": "2023-03-25T19:12:35.106Z",
             "headers": [],
             "params": [],
             "tests": []
