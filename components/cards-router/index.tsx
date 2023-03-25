@@ -1,8 +1,7 @@
-import styled from "@emotion/styled";
 import Image from "next/image";
-import Link from "next/link";
 
 import { makeImageLoader } from "../../utils/images/makeImageLoader";
+import { Link } from "../link";
 
 import { HVR_HOME_PICS_URL } from "./consts";
 import { Container } from "./index.styled";
