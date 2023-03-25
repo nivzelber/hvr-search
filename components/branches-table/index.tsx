@@ -18,3 +18,5 @@ export function BranchesTable<T extends GridValidRowModel>({
     </div>
   );
 }
+
+export * from "./branch-link";
