@@ -1,13 +1,11 @@
-import { GridRowsProp } from "@mui/x-data-grid";
 import axios from "axios";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 
 import { BRANCHES_REVALIDATE_INTERVAL } from "../../common/constants";
-import { BranchesTable } from "../../components/branches-table";
 import { Layout } from "../../components/layout";
+import { BlueCard } from "../../components/pages/blue";
 import { BRANCHES_URL } from "../../components/pages/blue/consts";
-import { columns } from "../../components/pages/blue/table-defs";
 
 import type { RawBranch, Branch } from "../../components/pages/blue/branch";
 
@@ -32,11 +30,9 @@ export const getStaticProps: GetStaticProps<StaticProps> = async _context => {
   };
 };
 
-type BlueProps = StaticProps & {};
+type Props = StaticProps & {};
 
-const Blue: NextPage<BlueProps> = ({ branches }) => {
-  const rows: GridRowsProp<Branch> = branches;
-
+const BlueCardPage: NextPage<Props> = ({ branches }) => {
   return (
     <div>
       <Head>
@@ -47,11 +43,11 @@ const Blue: NextPage<BlueProps> = ({ branches }) => {
 
       <Layout>
         <main>
-          <BranchesTable rows={rows} columns={columns} />
+          <BlueCard branches={branches} />
         </main>
       </Layout>
     </div>
   );
 };
 
-export default Blue;
+export default BlueCardPage;
