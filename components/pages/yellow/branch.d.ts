@@ -7,6 +7,7 @@ export interface RawBranch {
   company_category: string;
   website: string;
   limitations: string;
+  is_online: "Y" | "N";
   f_name: string; // used for full text search
 }
 

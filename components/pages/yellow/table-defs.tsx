@@ -29,7 +29,7 @@ export const columns: GridColDef<Branch>[] = [
   {
     field: "company",
     headerName: "שם",
-    flex: 1,
+    flex: 3,
     renderCell: ({ row: branch }) => {
       return (
         <CellWrapper>
@@ -37,6 +37,16 @@ export const columns: GridColDef<Branch>[] = [
           <p>{branch.company_category}</p>
         </CellWrapper>
       );
+    }
+  },
+  {
+    field: "isOnline",
+    headerName: "מכובד באונליין",
+    align: "center",
+    headerAlign: "center",
+    flex: 1,
+    renderCell: ({ row: branch }) => {
+      return <p>{branch.is_online === "Y" && "✅"}</p>;
     }
   }
 ];
