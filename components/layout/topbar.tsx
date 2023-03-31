@@ -7,6 +7,8 @@ import IconButton from "@mui/material/IconButton";
 import InputBase from "@mui/material/InputBase";
 import Toolbar from "@mui/material/Toolbar";
 
+import { useSearchState } from "../../store/searchStore";
+
 const Search = styled.div`
   position: relative;
   width: fit-content;
@@ -45,7 +47,8 @@ const StyledInputBase = styled(InputBase)`
   }
 `;
 
-export default function SearchAppBar() {
+export const Topbar = () => {
+  const { search, setSearch } = useSearchState();
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -57,10 +60,15 @@ export default function SearchAppBar() {
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
-            <StyledInputBase placeholder="חפש..." inputProps={{ "aria-label": "search" }} />
+            <StyledInputBase
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+              placeholder="חפש..."
+              inputProps={{ "aria-label": "search" }}
+            />
           </Search>
         </StyledToolbar>
       </AppBar>
     </Box>
   );
-}
+};

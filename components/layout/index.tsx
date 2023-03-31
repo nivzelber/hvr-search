@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react";
 
-import Topbar from "./topbar";
+import { Topbar } from "./topbar";
 
 export const Layout = ({ children }: PropsWithChildren) => (
   <>
