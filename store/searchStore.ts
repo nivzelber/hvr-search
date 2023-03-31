@@ -6,7 +6,7 @@ interface SearchState {
   setSearch: (search: SearchState["search"]) => void;
 }
 
-export const useSearchState = create<SearchState>()(
+export const useSearchStore = create<SearchState>()(
   devtools(
     persist(
       set => ({

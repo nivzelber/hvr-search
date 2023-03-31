@@ -7,7 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import InputBase from "@mui/material/InputBase";
 import Toolbar from "@mui/material/Toolbar";
 
-import { useSearchState } from "../../store/searchStore";
+import { useSearchStore } from "../../store/searchStore";
 
 const Search = styled.div`
   position: relative;
@@ -48,7 +48,8 @@ const StyledInputBase = styled(InputBase)`
 `;
 
 export const Topbar = () => {
-  const { search, setSearch } = useSearchState();
+  const { search, setSearch } = useSearchStore();
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
