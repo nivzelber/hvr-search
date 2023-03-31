@@ -1,17 +1,15 @@
-import { GridRowsProp } from "@mui/x-data-grid";
 import axios from "axios";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 
 import { BRANCHES_REVALIDATE_INTERVAL } from "../../common/constants";
-import { BranchesTable } from "../../components/branches-table";
+import { Layout } from "../../components/layout";
+import { YellowCard } from "../../components/pages/yellow";
 import { BRANCHES_URL } from "../../components/pages/yellow/consts";
-import { columns } from "../../components/pages/yellow/table-defs";
 
 import type { RawBranch, Branch } from "../../components/pages/yellow/branch";
 
 import type { NextPage } from "next";
-
 interface StaticProps {
   branches: Branch[];
 }
@@ -32,11 +30,9 @@ export const getStaticProps: GetStaticProps<StaticProps> = async _context => {
   };
 };
 
-type YellowProps = StaticProps & {};
+type YellowPageProps = StaticProps & {};
 
-const Yellow: NextPage<YellowProps> = ({ branches }) => {
-  const rows: GridRowsProp<Branch> = branches;
-
+const YellowPage: NextPage<YellowPageProps> = ({ branches }) => {
   return (
     <div>
       <Head>
@@ -45,11 +41,13 @@ const Yellow: NextPage<YellowProps> = ({ branches }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <BranchesTable rows={rows} columns={columns} />
-      </main>
+      <Layout>
+        <main>
+          <YellowCard branches={branches} />
+        </main>
+      </Layout>
     </div>
   );
 };
 
-export default Yellow;
+export default YellowPage;
