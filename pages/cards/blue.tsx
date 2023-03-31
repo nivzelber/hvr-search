@@ -5,6 +5,7 @@ import Head from "next/head";
 
 import { BRANCHES_REVALIDATE_INTERVAL } from "../../common/constants";
 import { BranchesTable } from "../../components/branches-table";
+import { Layout } from "../../components/layout";
 import { BRANCHES_URL } from "../../components/pages/blue/consts";
 import { columns } from "../../components/pages/blue/table-defs";
 
@@ -44,9 +45,11 @@ const Blue: NextPage<BlueProps> = ({ branches }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <BranchesTable rows={rows} columns={columns} />
-      </main>
+      <Layout>
+        <main>
+          <BranchesTable rows={rows} columns={columns} />
+        </main>
+      </Layout>
     </div>
   );
 };

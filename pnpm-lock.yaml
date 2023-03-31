@@ -5,6 +5,7 @@ specifiers:
   '@emotion/react': ^11.10.6
   '@emotion/server': ^11.10.0
   '@emotion/styled': ^11.10.6
+  '@mui/icons-material': ^5.11.11
   '@mui/material': ^5.11.12
   '@mui/x-data-grid': ^6.0.1
   '@types/axios': ^0.14.0
@@ -27,6 +28,7 @@ dependencies:
   '@emotion/react': 11.10.6_ug65io7jkbhmo4fihdmbrh3ina
   '@emotion/server': 11.10.0
   '@emotion/styled': 11.10.6_m7a2dtg6u2awppwbm6y5q6azsu
+  '@mui/icons-material': 5.11.11_tunmf67h6yugoxiqqkochzitvm
   '@mui/material': 5.11.12_ivnmevhhdjiexpfa7v5togdyqq
   '@mui/x-data-grid': 6.0.1_l63iwaafpcmtjxqaddu7534ibu
   axios: 1.3.4
