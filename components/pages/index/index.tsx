@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { BLUE_CARD, YELLOW_CARD } from "../../../common/routes";
 import { makeImageLoader } from "../../../utils/images/makeImageLoader";
 import { Link } from "../../link";
 
@@ -10,20 +11,20 @@ const imageLoader = makeImageLoader(HVR_HOME_PICS_URL);
 
 export const Index = () => (
   <Container>
-    <Link href="/cards/blue">
+    <Link href={BLUE_CARD}>
       <Image
         loader={imageLoader}
         src="teamim_card_bnr_041121.jpg"
-        alt="כרטיס כחול"
+        alt="חבר טעמים"
         width={337}
         height={215}
       />
     </Link>
-    <Link href="/cards/yellow">
+    <Link href={YELLOW_CARD}>
       <Image
         loader={imageLoader}
         src="keva_card_bnr_041121.jpg"
-        alt="כרטיס צהוב"
+        alt="חבר של קבע"
         width={337}
         height={215}
       />

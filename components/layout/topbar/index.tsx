@@ -4,7 +4,9 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 
+import { HOME } from "../../../common/routes";
 import { useSearchStore } from "../../../store/searchStore";
+import { Link } from "../../link";
 
 import { Search, SearchIconWrapper, StyledInputBase, StyledToolbar } from "./topbar.styled";
 
@@ -16,7 +18,9 @@ export const Topbar = () => {
       <AppBar position="static">
         <StyledToolbar>
           <IconButton size="medium" edge="end" color="inherit">
-            <Home />
+            <Link href={HOME}>
+              <Home />
+            </Link>
           </IconButton>
           <Search>
             <SearchIconWrapper>

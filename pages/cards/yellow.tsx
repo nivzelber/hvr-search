@@ -36,8 +36,8 @@ const YellowPage: NextPage<YellowPageProps> = ({ branches }) => {
   return (
     <div>
       <Head>
-        <title>Yellow</title>
-        <meta name="description" content="כרטיס צהוב סניפים" />
+        <title>חבר של קבע</title>
+        <meta name="description" content="סניפים חבר של קבע" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

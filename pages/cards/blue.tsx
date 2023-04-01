@@ -10,6 +10,7 @@ import { BRANCHES_URL } from "../../components/pages/blue/consts";
 import type { RawBranch, Branch } from "../../components/pages/blue/branch";
 
 import type { NextPage } from "next";
+
 interface StaticProps {
   branches: Branch[];
 }
@@ -36,8 +37,8 @@ const BlueCardPage: NextPage<Props> = ({ branches }) => {
   return (
     <div>
       <Head>
-        <title>Blue</title>
-        <meta name="description" content="כרטיס כחול סניפים" />
+        <title>חבר טעמים</title>
+        <meta name="description" content="סניפים חבר טעמים" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
