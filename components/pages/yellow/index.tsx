@@ -1,7 +1,4 @@
-import { GridRowsProp } from "@mui/x-data-grid";
-
-import { useSearchStore } from "../../../store/searchStore";
-import { branchesFilter } from "../../../utils/array/filter";
+import { useBranchesFilter } from "../../../hooks/useBranchesFilter";
 import { BranchesTable } from "../../branches-table";
 
 import { Branch } from "./branch";
@@ -11,11 +8,10 @@ interface YellowCardProps {
   branches: Branch[];
 }
 export const YellowCard = ({ branches }: YellowCardProps) => {
-  const search = useSearchStore(state => state.search);
-
-  const rows: GridRowsProp<Branch> = branches.filter(
-    branchesFilter<Branch>(search, ["company", "company_category", "f_name"])
-  );
+  const rows = useBranchesFilter({
+    branches,
+    filterParams: ["company", "company_category", "f_name"]
+  });
 
   return <BranchesTable rows={rows} columns={columns} />;
 };
