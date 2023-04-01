@@ -1,10 +1,11 @@
 import { PropsWithChildren } from "react";
 
+import { Container } from "./layout.styled";
 import { Topbar } from "./topbar";
 
 export const Layout = ({ children }: PropsWithChildren) => (
-  <>
+  <Container>
     <Topbar />
-    {children}
-  </>
+    <main>{children}</main>
+  </Container>
 );

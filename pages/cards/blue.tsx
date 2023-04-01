@@ -42,9 +42,7 @@ const BlueCardPage: NextPage<Props> = ({ branches }) => {
       </Head>
 
       <Layout>
-        <main>
-          <BlueCard branches={branches} />
-        </main>
+        <BlueCard branches={branches} />
       </Layout>
     </div>
   );

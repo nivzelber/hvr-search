@@ -1,9 +1,8 @@
 import styled from "@emotion/styled";
 
-export const Container = styled.div`
-  height: 100vh;
-  width: 100vw;
+import { FullScreenContainer } from "../../../styles/components/layouts";
 
+export const Container = styled(FullScreenContainer)`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

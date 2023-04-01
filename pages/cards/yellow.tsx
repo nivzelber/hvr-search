@@ -42,9 +42,7 @@ const YellowPage: NextPage<YellowPageProps> = ({ branches }) => {
       </Head>
 
       <Layout>
-        <main>
-          <YellowCard branches={branches} />
-        </main>
+        <YellowCard branches={branches} />
       </Layout>
     </div>
   );

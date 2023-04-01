@@ -1,6 +1,8 @@
 import { DataGrid, GridColDef, GridRowsProp, GridValidRowModel } from "@mui/x-data-grid";
 import { GridInitialStateCommunity } from "@mui/x-data-grid/models/gridStateCommunity";
 
+import { AllAvailableSpaceContainer } from "../../styles/components/layouts";
+
 interface BranchesTableProps<T extends GridValidRowModel> {
   rows: GridRowsProp<T>;
   columns: GridColDef<T>[];
@@ -13,9 +15,9 @@ export function BranchesTable<T extends GridValidRowModel>({
   initialState
 }: BranchesTableProps<T>) {
   return (
-    <div style={{ height: "100vh", width: "100%" }}>
+    <AllAvailableSpaceContainer>
       <DataGrid rows={rows} columns={columns} initialState={initialState} rowHeight={100} />
-    </div>
+    </AllAvailableSpaceContainer>
   );
 }
 

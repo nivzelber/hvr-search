@@ -12,7 +12,7 @@ export const Topbar = () => {
   const { search, setSearch } = useSearchStore();
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box>
       <AppBar position="static">
         <StyledToolbar>
           <IconButton size="medium" edge="end" color="inherit">
