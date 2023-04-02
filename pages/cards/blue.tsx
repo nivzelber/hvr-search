@@ -41,7 +41,7 @@ const BlueCardPage: NextPage<Props> = ({ branches }) => {
       <Head>
         <title>חבר טעמים</title>
         <meta name="description" content="סניפים חבר טעמים" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
 
       <Layout>

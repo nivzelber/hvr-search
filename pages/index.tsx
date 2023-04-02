@@ -9,7 +9,7 @@ const Home: NextPage = () => {
       <Head>
         <title>מחפשים בחבר</title>
         <meta name="description" content="חיפוש סניפים שמכבדים כרטיסי חבר" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
 
       <main>

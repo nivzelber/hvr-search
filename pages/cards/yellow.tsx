@@ -41,7 +41,7 @@ const YellowPage: NextPage<YellowPageProps> = ({ branches }) => {
       <Head>
         <title>חבר של קבע</title>
         <meta name="description" content="סניפים חבר של קבע" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
 
       <Layout>
