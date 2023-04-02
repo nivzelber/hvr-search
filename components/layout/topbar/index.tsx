@@ -21,7 +21,10 @@ export const Topbar = () => {
         <StyledToolbar>
           <IconButton size="medium" edge="end" color="inherit">
             <Link href={HOME}>
-              <Home htmlColor={theme.palette.primary.contrastText} />
+              <Home
+                htmlColor={theme.palette.primary.contrastText}
+                onClick={_event => setSearch("")}
+              />
             </Link>
           </IconButton>
           <Search>
