@@ -6,11 +6,11 @@ import { BRANCHES_REVALIDATE_INTERVAL } from "../../common/constants";
 import { Layout } from "../../components/layout";
 import { BlueCard } from "../../components/pages/blue";
 import { BRANCHES_URL } from "../../components/pages/blue/consts";
+import { useSetThemeOnMount } from "../../hooks/useSetThemeOnMount";
 
 import type { RawBranch, Branch } from "../../components/pages/blue/branch";
 
 import type { NextPage } from "next";
-
 interface StaticProps {
   branches: Branch[];
 }
@@ -34,6 +34,8 @@ export const getStaticProps: GetStaticProps<StaticProps> = async _context => {
 type Props = StaticProps & {};
 
 const BlueCardPage: NextPage<Props> = ({ branches }) => {
+  useSetThemeOnMount("blue");
+
   return (
     <div>
       <Head>

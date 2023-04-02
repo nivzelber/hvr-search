@@ -6,6 +6,7 @@ import { BRANCHES_REVALIDATE_INTERVAL } from "../../common/constants";
 import { Layout } from "../../components/layout";
 import { YellowCard } from "../../components/pages/yellow";
 import { BRANCHES_URL } from "../../components/pages/yellow/consts";
+import { useSetThemeOnMount } from "../../hooks/useSetThemeOnMount";
 
 import type { RawBranch, Branch } from "../../components/pages/yellow/branch";
 
@@ -33,6 +34,8 @@ export const getStaticProps: GetStaticProps<StaticProps> = async _context => {
 type YellowPageProps = StaticProps & {};
 
 const YellowPage: NextPage<YellowPageProps> = ({ branches }) => {
+  useSetThemeOnMount("yellow");
+
   return (
     <div>
       <Head>

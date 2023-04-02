@@ -1,12 +1,12 @@
 import "../styles/globals.css";
 
-import { CacheProvider, EmotionCache } from "@emotion/react";
-import { green } from "@mui/material/colors";
+import { CacheProvider, EmotionCache, ThemeProvider } from "@emotion/react";
 import CssBaseline from "@mui/material/CssBaseline";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { createTheme } from "@mui/material/styles";
 import { AppProps } from "next/app";
 import Head from "next/head";
 
+import { useThemeStore } from "../store/themeStore";
 import { createEmotionCache } from "../styles/setup/createEmotionCache";
 
 // Client-side cache, shared for the whole session of the user in the browser.
@@ -16,19 +16,15 @@ interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
 }
 
-export default function MyApp(props: MyAppProps) {
-  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+export default function MyApp({
+  Component,
+  emotionCache = clientSideEmotionCache,
+  pageProps
+}: MyAppProps) {
+  // only place where useThemeStore().theme should be used (instead of useTheme from mui)
+  const selectedTheme = useThemeStore(state => state.theme);
+  const theme = createTheme(selectedTheme);
 
-  const theme = createTheme({
-    palette: {
-      primary: {
-        main: green.A700
-      },
-      secondary: {
-        main: "#ff6666"
-      }
-    }
-  });
   return (
     <CacheProvider value={emotionCache}>
       <Head>

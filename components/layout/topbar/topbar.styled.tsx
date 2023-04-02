@@ -25,7 +25,7 @@ export const SearchIconWrapper = styled.div`
 `;
 
 export const StyledToolbar = styled(Toolbar)`
-  background-color: #003a68;
+  background-color: ${({ theme }) => theme.palette.primary};
 `;
 
 export const StyledInputBase = styled(InputBase)`

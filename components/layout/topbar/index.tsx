@@ -1,5 +1,6 @@
 import Home from "@mui/icons-material/Home";
 import SearchIcon from "@mui/icons-material/Search";
+import { useTheme } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
@@ -12,6 +13,7 @@ import { Search, SearchIconWrapper, StyledInputBase, StyledToolbar } from "./top
 
 export const Topbar = () => {
   const { search, setSearch } = useSearchStore();
+  const theme = useTheme();
 
   return (
     <Box>
@@ -19,7 +21,7 @@ export const Topbar = () => {
         <StyledToolbar>
           <IconButton size="medium" edge="end" color="inherit">
             <Link href={HOME}>
-              <Home />
+              <Home htmlColor={theme.palette.primary.contrastText} />
             </Link>
           </IconButton>
           <Search>
