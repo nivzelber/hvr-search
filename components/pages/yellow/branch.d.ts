@@ -8,6 +8,7 @@ export interface RawBranch {
   website: string;
   limitations: string;
   is_online: "Y" | "N";
+  search_words: string;
   f_name: string; // used for full text search
 }
 

@@ -7,10 +7,11 @@ import { columns } from "./table-defs";
 interface YellowCardProps {
   branches: Branch[];
 }
+
 export const YellowCard = ({ branches }: YellowCardProps) => {
   const rows = useBranchesFilter({
     branches,
-    filterParams: ["company", "company_category", "f_name"]
+    filterParams: ["company", "company_category", "search_words", "f_name"]
   });
 
   return <BranchesTable rows={rows} columns={columns} />;
