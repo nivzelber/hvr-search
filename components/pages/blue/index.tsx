@@ -14,5 +14,15 @@ export const BlueCard = ({ branches }: BlueCardProps) => {
     filterParams: ["name", "desc", "city", "address", "f_name"]
   });
 
-  return <BranchesTable rows={rows} columns={columns} />;
+  return (
+    <BranchesTable
+      rows={rows}
+      columns={columns}
+      initialState={{
+        sorting: {
+          sortModel: [{ field: "name", sort: "asc" }]
+        }
+      }}
+    />
+  );
 };

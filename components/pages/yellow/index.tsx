@@ -14,5 +14,15 @@ export const YellowCard = ({ branches }: YellowCardProps) => {
     filterParams: ["company", "company_category", "search_words", "f_name"]
   });
 
-  return <BranchesTable rows={rows} columns={columns} />;
+  return (
+    <BranchesTable
+      rows={rows}
+      columns={columns}
+      initialState={{
+        sorting: {
+          sortModel: [{ field: "company", sort: "asc" }]
+        }
+      }}
+    />
+  );
 };
