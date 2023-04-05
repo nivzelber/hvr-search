@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import { BranchLink, CellWrapper } from "../../../components/branches-table";
 import { makeImageLoader } from "../../../utils/images/makeImageLoader";
+import { isMediumScreen } from "../../../utils/platform";
 import { commonColumnProperties } from "../../branches-table/common";
 
 import { LOGO_BASE_URL } from "./consts";
@@ -14,17 +15,19 @@ const baseColumns: GridColDef<Branch>[] = [
   {
     field: "logo",
     headerName: "",
-    flex: 0,
+    flex: isMediumScreen ? 0 : 1,
     renderCell: ({ row: branch }) => (
-      <BranchLink href={branch.website}>
-        <Image
-          loader={imageLoader}
-          src={branch.logo}
-          alt={branch.company}
-          width={155}
-          height={155}
-        />
-      </BranchLink>
+      <CellWrapper>
+        <BranchLink href={branch.website}>
+          <Image
+            loader={imageLoader}
+            src={branch.logo}
+            alt={branch.company}
+            width={155}
+            height={155}
+          />
+        </BranchLink>
+      </CellWrapper>
     )
   },
   {

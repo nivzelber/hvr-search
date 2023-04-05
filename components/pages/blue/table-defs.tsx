@@ -4,6 +4,7 @@ import Image from "next/image";
 import { BranchLink } from "../../../components/branches-table";
 import { makeImageLoader } from "../../../utils/images/makeImageLoader";
 import { buildAddressLink } from "../../../utils/location";
+import { isMediumScreen } from "../../../utils/platform";
 import { CellWrapper } from "../../branches-table";
 import { commonColumnProperties } from "../../branches-table/common";
 
@@ -16,11 +17,13 @@ const baseColumns: GridColDef<Branch>[] = [
   {
     field: "img",
     headerName: "",
-    flex: 0,
+    flex: isMediumScreen ? 0 : 1,
     renderCell: ({ row: branch }) => (
-      <BranchLink href={branch.website}>
-        <Image loader={imageLoader} src={branch.img} alt={branch.name} width={100} height={50} />
-      </BranchLink>
+      <CellWrapper>
+        <BranchLink href={branch.website}>
+          <Image loader={imageLoader} src={branch.img} alt={branch.name} width={100} height={50} />
+        </BranchLink>
+      </CellWrapper>
     )
   },
   {
@@ -42,7 +45,7 @@ const baseColumns: GridColDef<Branch>[] = [
   {
     field: "details",
     headerName: "פרטים",
-    flex: 3,
+    flex: 2,
     renderCell: ({ row: branch }) => (
       <CellWrapper>
         <a href={buildAddressLink(`${branch.address} ${branch.city}`)}>
