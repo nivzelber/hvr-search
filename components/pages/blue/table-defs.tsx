@@ -5,13 +5,14 @@ import { BranchLink } from "../../../components/branches-table";
 import { makeImageLoader } from "../../../utils/images/makeImageLoader";
 import { buildAddressLink } from "../../../utils/location";
 import { CellWrapper } from "../../branches-table";
+import { commonColumnProperties } from "../../branches-table/common";
 
 import { LOGO_BASE_URL } from "./consts";
 
 import type { Branch } from "./branch";
 const imageLoader = makeImageLoader(LOGO_BASE_URL);
 
-export const columns: GridColDef<Branch>[] = [
+const baseColumns: GridColDef<Branch>[] = [
   {
     field: "img",
     headerName: "",
@@ -52,3 +53,8 @@ export const columns: GridColDef<Branch>[] = [
     )
   }
 ];
+
+export const columns: GridColDef<Branch>[] = baseColumns.map(column => ({
+  ...commonColumnProperties,
+  ...column
+}));

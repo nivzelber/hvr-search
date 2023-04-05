@@ -3,13 +3,14 @@ import Image from "next/image";
 
 import { BranchLink, CellWrapper } from "../../../components/branches-table";
 import { makeImageLoader } from "../../../utils/images/makeImageLoader";
+import { commonColumnProperties } from "../../branches-table/common";
 
 import { LOGO_BASE_URL } from "./consts";
 
 import type { Branch } from "./branch";
 const imageLoader = makeImageLoader(LOGO_BASE_URL);
 
-export const columns: GridColDef<Branch>[] = [
+const baseColumns: GridColDef<Branch>[] = [
   {
     field: "logo",
     headerName: "",
@@ -50,3 +51,8 @@ export const columns: GridColDef<Branch>[] = [
     }
   }
 ];
+
+export const columns: GridColDef<Branch>[] = baseColumns.map(column => ({
+  ...commonColumnProperties,
+  ...column
+}));
