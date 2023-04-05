@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import { BranchLink } from "../../../components/branches-table";
 import { makeImageLoader } from "../../../utils/images/makeImageLoader";
+import { buildAddressLink } from "../../../utils/location";
 import { CellWrapper } from "../../branches-table";
 
 import { LOGO_BASE_URL } from "./consts";
@@ -41,12 +42,11 @@ export const columns: GridColDef<Branch>[] = [
     field: "details",
     headerName: "פרטים",
     flex: 3,
-
     renderCell: ({ row: branch }) => (
       <CellWrapper>
-        <p>
+        <a href={buildAddressLink(`${branch.address} ${branch.city}`)}>
           {branch.city} | {branch.address}
-        </p>
+        </a>
         <a href={`tel:${branch.phone}`}>{branch.phone}</a>
       </CellWrapper>
     )
