@@ -3,14 +3,14 @@
 Searching hever's branches was never so easy.
 
 ## Features
-- [x] No need for login
-- [x] Lightning fast, language based search
-- [x] Auto branch updating
-- [x] Branch links
-  - [x] website
-  - [x] phone
-  - [x] address
-- [x] Offline mode
+- ✅ No need for login
+- ✅ Lightning fast, language based search
+- ✅ Auto branch updating
+- ✅ Branch links
+  - ✅ website
+  - ✅ phone
+  - ✅ address
+- ✅ Offline mode
 
 
 ## Tech features
@@ -43,6 +43,12 @@ pnpm run build && pnpm run start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+
+### API
+[hvr.co.il](hvr.co.il)'s public API is used in this webapp.  
+Use `thunder-collection_Hever.json` to check it out.
+
 
 ## Hosting
 
