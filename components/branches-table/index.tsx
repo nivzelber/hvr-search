@@ -16,7 +16,12 @@ export function BranchesTable<T extends GridValidRowModel>({
 }: BranchesTableProps<T>) {
   return (
     <AllAvailableSpaceContainer>
-      <DataGrid rows={rows} columns={columns} initialState={initialState} rowHeight={100} />
+      <DataGrid
+        rows={rows}
+        columns={columns}
+        initialState={initialState}
+        getRowHeight={() => "auto"}
+      />
     </AllAvailableSpaceContainer>
   );
 }
