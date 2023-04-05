@@ -15,7 +15,7 @@ Searching hever's branches was never so easy.
 
 ## Tech features
 
-- Everything [Next.js](https://nextjs.org/) has to offer
+Everything [Next.js](https://nextjs.org/) has to offer, and in addition:
 - Dynamic rendering
 - CSS caching
 - Local image caching
