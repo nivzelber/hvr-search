@@ -21,6 +21,8 @@ export const SearchIconWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
+  color: black;
+
   pointer-events: none;
 `;
 
