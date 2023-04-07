@@ -40,3 +40,7 @@ export const StyledInputBase = styled(InputBase)`
     padding-right: calc(1em + 10px);
   }
 `;
+
+export const Space = styled.div`
+  flex-grow: 1;
+`;
