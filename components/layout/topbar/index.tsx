@@ -64,7 +64,7 @@ export const Topbar = ({FiltersForm}: TopbarProps) => {
             </IconButton>
             
             <Popper open={open} placement="bottom-start" anchorEl={anchorEl}>
-              <ClickAwayListener  onClickAway={handleClose}>
+              <ClickAwayListener onClickAway={handleClose}>
                 <Card>{FiltersForm}</Card>
               </ClickAwayListener>
             </Popper>
