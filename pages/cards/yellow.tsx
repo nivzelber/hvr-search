@@ -37,7 +37,7 @@ const YellowPage: NextPage<YellowPageProps> = ({ branches }) => {
   useSetThemeOnMount("yellow");
 
   return (
-    <div>
+    <>
       <Head>
         <title>חבר של קבע</title>
         <meta name="description" content="סניפים חבר של קבע" />
@@ -47,7 +47,7 @@ const YellowPage: NextPage<YellowPageProps> = ({ branches }) => {
       <Layout>
         <YellowCard branches={branches} />
       </Layout>
-    </div>
+    </>
   );
 };
 

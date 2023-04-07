@@ -37,7 +37,7 @@ const BlueCardPage: NextPage<Props> = ({ branches }) => {
   useSetThemeOnMount("blue");
 
   return (
-    <div>
+    <>
       <Head>
         <title>חבר טעמים</title>
         <meta name="description" content="סניפים חבר טעמים" />
@@ -47,7 +47,7 @@ const BlueCardPage: NextPage<Props> = ({ branches }) => {
       <Layout>
         <BlueCard branches={branches} />
       </Layout>
-    </div>
+    </>
   );
 };
 
