@@ -2,8 +2,8 @@ import { useMemo } from "react";
 import { FormGroup } from "@mui/material";
 
 import { Branch } from "./branch";
-import { useBooleanInput } from "../../../hooks/useBooleanInput";
-import { useListInput } from "../../../hooks/useListInput";
+import { useBooleanInput } from "../../../hooks/form/useBooleanInput";
+import { useListInput } from "../../../hooks/form/useListInput";
 
 export const useFilters = (branches: Branch[]) => {
     const [isOnline, IsOnlineInput] = useBooleanInput(false, "מכובד באונליין");
@@ -22,7 +22,7 @@ export const useFilters = (branches: Branch[]) => {
     );
 
     const FiltersForm = (
-        <FormGroup sx={{width:"13em"}}>
+        <FormGroup sx={{width:"20em"}}>
             {IsOnlineInput}
             {CategoryInput}
         </FormGroup>

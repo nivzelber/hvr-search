@@ -2,8 +2,8 @@ import { useMemo } from "react";
 import { FormGroup } from "@mui/material";
 
 import { Branch } from "./branch";
-import { useBooleanInput } from "../../../hooks/useBooleanInput";
-import { useListInput } from "../../../hooks/useListInput";
+import { useBooleanInput } from "../../../hooks/form/useBooleanInput";
+import { useListInput } from "../../../hooks/form/useListInput";
 
 export const useFilters = (branches: Branch[]) => {
     const [kosher, KosherInput] = useBooleanInput(false, "כשר");
@@ -28,7 +28,7 @@ export const useFilters = (branches: Branch[]) => {
     );
 
     const FiltersForm = (
-        <FormGroup sx={{width:"18em"}}>
+        <FormGroup sx={{width:"20em"}}>
             {KosherInput}
             {DeliveryInput}
             {CategoryInput} 
