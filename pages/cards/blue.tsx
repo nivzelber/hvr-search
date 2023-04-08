@@ -45,7 +45,7 @@ const BlueCardPage: NextPage<Props> = ({ branches }) => {
   });
 
   return (
-    <div>
+    <>
       <Head>
         <title>חבר טעמים</title>
         <meta name="description" content="סניפים חבר טעמים" />
@@ -55,7 +55,7 @@ const BlueCardPage: NextPage<Props> = ({ branches }) => {
       <Layout topbarProps={{FiltersForm}}>
         <BlueCard rows={searchedRows} />
       </Layout>
-    </div>
+    </>
   );
 };
 

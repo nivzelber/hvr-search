@@ -45,7 +45,7 @@ const YellowPage: NextPage<YellowPageProps> = ({ branches }) => {
   });
 
   return (
-    <div>
+    <>
       <Head>
         <title>חבר של קבע</title>
         <meta name="description" content="סניפים חבר של קבע" />
@@ -55,7 +55,7 @@ const YellowPage: NextPage<YellowPageProps> = ({ branches }) => {
       <Layout topbarProps={{FiltersForm}}>
         <YellowCard rows={searchedRows} />
       </Layout>
-    </div>
+    </>
   );
 };
 

@@ -1,10 +1,11 @@
 import "../styles/globals.css";
 
-import { CacheProvider, EmotionCache, ThemeProvider } from "@emotion/react";
+import { CacheProvider, EmotionCache } from "@emotion/react";
 import CssBaseline from "@mui/material/CssBaseline";
-import { createTheme } from "@mui/material/styles";
+import { createTheme, StyledEngineProvider, ThemeProvider } from "@mui/material/styles";
 import { AppProps } from "next/app";
 import Head from "next/head";
+import { useEffect, useState } from "react";
 
 import { useThemeStore } from "../store/themeStore";
 import { createEmotionCache } from "../styles/setup/createEmotionCache";
@@ -25,15 +26,22 @@ export default function MyApp({
   const selectedTheme = useThemeStore(state => state.theme);
   const theme = createTheme(selectedTheme);
 
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) return <></>;
+
   return (
     <CacheProvider value={emotionCache}>
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <StyledEngineProvider injectFirst>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </StyledEngineProvider>
     </CacheProvider>
   );
 }

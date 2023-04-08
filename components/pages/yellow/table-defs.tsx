@@ -48,6 +48,7 @@ const baseColumns: GridColDef<Branch>[] = [
     headerName: "מכובד באונליין",
     align: "center",
     headerAlign: "center",
+    minWidth: 120,
     flex: 1,
     renderCell: ({ row: branch }) => {
       return <p>{branch.is_online === "Y" && "✅"}</p>;

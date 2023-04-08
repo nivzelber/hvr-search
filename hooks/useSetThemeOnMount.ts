@@ -7,5 +7,5 @@ export const useSetThemeOnMount = (theme: Themes) => {
 
   useEffect(() => {
     setTheme(theme);
-  });
+  }, []);
 };
