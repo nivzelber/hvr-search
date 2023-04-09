@@ -1,28 +1,19 @@
-import { useBranchesFilter } from "../../../hooks/useBranchesFilter";
 import { BranchesTable } from "../../branches-table";
 
 import { Branch } from "./branch";
 import { columns } from "./table-defs";
 
 interface YellowCardProps {
-  branches: Branch[];
+  rows: Branch[];
 }
 
-export const YellowCard = ({ branches }: YellowCardProps) => {
-  const rows = useBranchesFilter({
-    branches,
-    filterParams: ["company", "company_category", "search_words", "f_name"]
-  });
-
-  return (
-    <BranchesTable
-      rows={rows}
-      columns={columns}
-      initialState={{
-        sorting: {
-          sortModel: [{ field: "company", sort: "asc" }]
-        }
-      }}
-    />
-  );
-};
+export const YellowCard = ({ rows }: YellowCardProps) => 
+  <BranchesTable
+    rows={rows}
+    columns={columns}
+    initialState={{
+      sorting: {
+        sortModel: [{ field: "company", sort: "asc" }]
+      }
+    }}
+  />;

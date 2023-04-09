@@ -1,11 +1,15 @@
 import { PropsWithChildren } from "react";
 
 import { Container } from "./layout.styled";
-import { Topbar } from "./topbar";
+import { Topbar, TopbarProps } from "./topbar";
 
-export const Layout = ({ children }: PropsWithChildren) => (
+export type LayoutProps = PropsWithChildren<{
+  topbarProps?: TopbarProps;
+}>
+
+export const Layout = ({ children, topbarProps }: LayoutProps) => (
   <Container>
-    <Topbar />
+    <Topbar {...topbarProps} />
     <main>{children}</main>
   </Container>
 );

@@ -1,20 +1,12 @@
-import { useBranchesFilter } from "../../../hooks/useBranchesFilter";
 import { BranchesTable } from "../../branches-table";
-
 import { Branch } from "./branch";
 import { columns } from "./table-defs";
 
 interface BlueCardProps {
-  branches: Branch[];
+  rows: Branch[];
 }
 
-export const BlueCard = ({ branches }: BlueCardProps) => {
-  const rows = useBranchesFilter({
-    branches,
-    filterParams: ["name", "desc", "city", "address", "f_name"]
-  });
-
-  return (
+export const BlueCard = ({ rows }: BlueCardProps) => 
     <BranchesTable
       rows={rows}
       columns={columns}
@@ -23,6 +15,4 @@ export const BlueCard = ({ branches }: BlueCardProps) => {
           sortModel: [{ field: "name", sort: "asc" }]
         }
       }}
-    />
-  );
-};
+    />;
