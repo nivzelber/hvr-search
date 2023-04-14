@@ -5,12 +5,13 @@ import { makeImageLoader } from "../../../utils/images/makeImageLoader";
 import { Link } from "../../link";
 
 import { HVR_HOME_PICS_URL } from "./consts";
-import { Container } from "./index.styled";
+import { Container, StyledInfoIcon } from "./index.styled";
 
 const imageLoader = makeImageLoader(HVR_HOME_PICS_URL);
 
 export const Index = () => (
   <Container>
+    <StyledInfoIcon />
     <Link href={BLUE_CARD}>
       <Image
         loader={imageLoader}
