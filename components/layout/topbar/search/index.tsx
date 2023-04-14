@@ -35,7 +35,7 @@ export const Search = () => {
             <HighlightOffIcon />
           </IconButton>
         }
-        placeholder="חפש..."
+        placeholder="חפש/י..."
         inputProps={{ "aria-label": "search" }}
       />
     </StyledSearch>
