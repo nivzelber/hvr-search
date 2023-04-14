@@ -5,7 +5,7 @@ import { Topbar, TopbarProps } from "./topbar";
 
 export type LayoutProps = PropsWithChildren<{
   topbarProps?: TopbarProps;
-}>
+}>;
 
 export const Layout = ({ children, topbarProps }: LayoutProps) => (
   <Container>

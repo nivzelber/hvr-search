@@ -1,7 +1,7 @@
-import { Card, ClickAwayListener, Popper, useTheme, IconButton, Box , AppBar} from "@mui/material";
-import { useState, MouseEvent, ReactNode } from "react";
-import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import Home from "@mui/icons-material/Home";
+import { AppBar, Box, Card, ClickAwayListener, IconButton, Popper, useTheme } from "@mui/material";
+import { MouseEvent, ReactNode, useState } from "react";
 
 import { HOME } from "../../../common/routes";
 import { Link } from "../../link";
@@ -10,10 +10,10 @@ import { Search } from "./search";
 import { Space, StyledToolbar } from "./topbar.styled";
 
 export type TopbarProps = {
-  FiltersForm?: ReactNode
-}
+  FiltersForm?: ReactNode;
+};
 
-export const Topbar = ({FiltersForm}: TopbarProps) => {
+export const Topbar = ({ FiltersForm }: TopbarProps) => {
   const theme = useTheme();
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -37,19 +37,21 @@ export const Topbar = ({FiltersForm}: TopbarProps) => {
 
           <Search />
 
-          {FiltersForm && <>
-            <Space/>
-            
-            <IconButton color="inherit" onClick={handleClick}>
-             <FilterAltIcon />
-            </IconButton>
-            
-            <Popper open={open} placement="bottom-start" anchorEl={anchorEl}>
-              <ClickAwayListener onClickAway={handleClose}>
-                <Card>{FiltersForm}</Card>
-              </ClickAwayListener>
-            </Popper>
-          </>}
+          {FiltersForm && (
+            <>
+              <Space />
+
+              <IconButton color="inherit" onClick={handleClick}>
+                <FilterAltIcon />
+              </IconButton>
+
+              <Popper open={open} placement="bottom-start" anchorEl={anchorEl}>
+                <ClickAwayListener onClickAway={handleClose}>
+                  <Card>{FiltersForm}</Card>
+                </ClickAwayListener>
+              </Popper>
+            </>
+          )}
         </StyledToolbar>
       </AppBar>
     </Box>

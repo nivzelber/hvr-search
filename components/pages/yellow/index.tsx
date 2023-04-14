@@ -7,7 +7,7 @@ interface YellowCardProps {
   rows: Branch[];
 }
 
-export const YellowCard = ({ rows }: YellowCardProps) => 
+export const YellowCard = ({ rows }: YellowCardProps) => (
   <BranchesTable
     rows={rows}
     columns={columns}
@@ -16,4 +16,5 @@ export const YellowCard = ({ rows }: YellowCardProps) =>
         sortModel: [{ field: "company", sort: "asc" }]
       }
     }}
-  />;
+  />
+);
