@@ -13,6 +13,7 @@ specifiers:
   '@types/node': 18.7.6
   '@types/react': 18.0.17
   '@types/react-dom': 18.0.6
+  '@vercel/analytics': ^1.0.0
   axios: ^1.3.5
   cross-env: ^7.0.3
   eslint: 8.22.0
@@ -35,6 +36,7 @@ dependencies:
   '@mui/icons-material': 5.11.16_lu2uiyerlyal3umj6scl4ptvcu
   '@mui/material': 5.11.16_ivnmevhhdjiexpfa7v5togdyqq
   '@mui/x-data-grid': 6.0.4_t3lbttpmjro6i42yb3hu4jwei4
+  '@vercel/analytics': 1.0.0_react@18.2.0
   axios: 1.3.5
   lodash: 4.17.21
   next: 12.2.5_z72xxk7vwlamvgqemvc4ptm4du
@@ -2015,6 +2017,14 @@ packages:
       '@typescript-eslint/types': 5.57.1
       eslint-visitor-keys: 3.4.0
     dev: true
+
+  /@vercel/analytics/1.0.0_react@18.2.0:
+    resolution: {integrity: sha512-RQmj7pv82JwGDHrnKeRc6TtSw2U7rWNubc2IH0ernTzWTj02yr9zvIYiYJeztsBzrJtWv7m8Nz6vxxb+cdEtJw==}
+    peerDependencies:
+      react: ^16.8||^17||^18
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /@webassemblyjs/ast/1.11.1:
     resolution: {integrity: sha512-ukBh14qFLjxTQNTXocdyksN5QdM28S1CxHt2rdskFyL+xFV7VremuBLVbmCePj+URalXBENx/9Lm7lnhihtCSw==}

@@ -3,6 +3,7 @@ import "../styles/globals.css";
 import { CacheProvider, EmotionCache } from "@emotion/react";
 import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme, StyledEngineProvider, ThemeProvider } from "@mui/material/styles";
+import { Analytics } from "@vercel/analytics/react";
 import { AppProps } from "next/app";
 import Head from "next/head";
 import { useEffect, useState } from "react";
@@ -39,6 +40,7 @@ export default function MyApp({
       <StyledEngineProvider injectFirst>
         <ThemeProvider theme={theme}>
           <CssBaseline />
+          <Analytics />
           <Component {...pageProps} />
         </ThemeProvider>
       </StyledEngineProvider>
