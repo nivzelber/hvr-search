@@ -54,7 +54,7 @@ const BlueCardPage: NextPage<Props> = ({ branches }) => {
       </Head>
 
       <Layout topbarProps={{ FiltersForm }}>
-        <BlueCard rows={searchedRows} />
+        <BlueCard branches={searchedRows} />
       </Layout>
     </>
   );

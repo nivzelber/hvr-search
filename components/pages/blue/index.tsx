@@ -4,12 +4,12 @@ import { Branch } from "./branch";
 import { columns } from "./table-defs";
 
 interface BlueCardProps {
-  rows: Branch[];
+  branches: Branch[];
 }
 
-export const BlueCard = ({ rows }: BlueCardProps) => (
+export const BlueCard = ({ branches }: BlueCardProps) => (
   <BranchesTable
-    rows={rows}
+    rows={branches}
     columns={columns}
     initialState={{
       sorting: {

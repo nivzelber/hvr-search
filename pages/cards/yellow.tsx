@@ -54,7 +54,7 @@ const YellowPage: NextPage<YellowPageProps> = ({ branches }) => {
       </Head>
 
       <Layout topbarProps={{ FiltersForm }}>
-        <YellowCard rows={searchedRows} />
+        <YellowCard branches={searchedRows} />
       </Layout>
     </>
   );
