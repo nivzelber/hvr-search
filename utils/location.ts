@@ -1,3 +1,6 @@
+import type { Location } from "../types/location";
+import haversineDistance from "haversine-distance";
+
 import { isAndroid, isIOS } from "./platform";
 
 /**
@@ -8,3 +11,6 @@ import { isAndroid, isIOS } from "./platform";
 const geoLink = isAndroid ? "geo:?q=" : isIOS ? "maps://?q=" : `https://www.google.com/maps?q=`;
 
 export const buildAddressLink = (address: string) => geoLink + address.split(" ").join("+");
+
+export const metersBetween = (location1: Location, location2: Location) =>
+  haversineDistance(location1, location2);

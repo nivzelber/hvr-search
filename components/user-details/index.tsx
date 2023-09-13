@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+
 import { useUserStore } from "../../store/userStore";
 
 export const UserDetails = () => {
@@ -10,6 +11,7 @@ export const UserDetails = () => {
      * Since we don't want the entire website to change due to
      * user moving and new data coming in, this is currently only done one
      */
+    // TODO: log failure to get geolocation information
     navigator.geolocation.getCurrentPosition(setGeolocation);
   }, []);
 

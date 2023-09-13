@@ -17,8 +17,14 @@ export interface RawBranch {
   search_words: string;
   f_name: string; // used for full text search
   f_is_delivery: "N" | "Y";
+  latitude: string;
+  longitude: string;
 }
 
 export interface Branch extends RawBranch {
   id: string;
+}
+
+export interface ExtendedBranch extends Branch {
+  distanceFromUser?: number;
 }

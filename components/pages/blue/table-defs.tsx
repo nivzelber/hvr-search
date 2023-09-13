@@ -10,10 +10,10 @@ import { commonColumnProperties } from "../../branches-table/common";
 
 import { LOGO_BASE_URL } from "./consts";
 
-import type { Branch } from "./branch";
+import type { ExtendedBranch } from "./branch";
 const imageLoader = makeImageLoader(LOGO_BASE_URL);
 
-const baseColumns: GridColDef<Branch>[] = [
+const baseColumns: GridColDef<ExtendedBranch>[] = [
   {
     field: "img",
     headerName: "",
@@ -46,18 +46,21 @@ const baseColumns: GridColDef<Branch>[] = [
     field: "details",
     headerName: "פרטים",
     flex: 2,
-    renderCell: ({ row: branch }) => (
-      <CellWrapper>
-        <a href={buildAddressLink(`${branch.address} ${branch.city}`)}>
-          {branch.city} | {branch.address}
-        </a>
-        <a href={`tel:${branch.phone}`}>{branch.phone}</a>
-      </CellWrapper>
-    )
+    renderCell: ({ row: branch }) => {
+      return (
+        <CellWrapper>
+          <a href={buildAddressLink(`${branch.address} ${branch.city}`)}>
+            {branch.city} | {branch.address}
+          </a>
+          <a href={`tel:${branch.phone}`}>{branch.phone}</a>
+          {branch.distanceFromUser && <p>{branch.distanceFromUser}</p>}
+        </CellWrapper>
+      );
+    }
   }
 ];
 
-export const columns: GridColDef<Branch>[] = baseColumns.map(column => ({
+export const columns: GridColDef<ExtendedBranch>[] = baseColumns.map(column => ({
   ...commonColumnProperties,
   ...column
 }));
