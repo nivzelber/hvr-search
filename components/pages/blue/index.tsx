@@ -1,11 +1,11 @@
-import { GridRowsProp } from "@mui/x-data-grid";
+import { useMemo } from "react";
 
 import { useUserStore } from "../../../store/userStore";
 import { Location } from "../../../types/location";
 import { metersBetween } from "../../../utils/location";
 import { BranchesTable } from "../../branches-table";
 
-import { Branch, ExtendedBranch } from "./branch";
+import { Branch } from "./branch";
 import { columns } from "./table-defs";
 
 interface BlueCardProps {
@@ -14,16 +14,18 @@ interface BlueCardProps {
 
 export const BlueCard = ({ branches }: BlueCardProps) => {
   const { geolocation } = useUserStore();
-  let rows: GridRowsProp<ExtendedBranch> = branches;
 
-  // for some reason this is the only working way for null checking GeoPosition objects
-  if (geolocation?.coords !== undefined) {
+  const rows = useMemo(() => {
+    // for some reason this is the only working way for null checking GeoPosition objects
+    if (geolocation?.coords === undefined) return branches;
+    console.log(geolocation);
+
     const userLocation: Location = {
       longitude: geolocation.coords.longitude,
       latitude: geolocation.coords.latitude
     };
 
-    rows = branches.map(branch => {
+    return branches.map(branch => {
       const branchLocation: Location = {
         longitude: Number(branch.longitude),
         latitude: Number(branch.latitude)
@@ -33,7 +35,7 @@ export const BlueCard = ({ branches }: BlueCardProps) => {
         distanceFromUser: metersBetween(userLocation, branchLocation)
       };
     });
-  }
+  }, [geolocation]);
 
   return (
     <BranchesTable
@@ -41,7 +43,7 @@ export const BlueCard = ({ branches }: BlueCardProps) => {
       columns={columns}
       initialState={{
         sorting: {
-          sortModel: [{ field: "distanceFromUser", sort: "asc" }],
+          sortModel: [{ field: "distanceFromUser", sort: "asc" }]
         },
         columns: {
           columnVisibilityModel: {
