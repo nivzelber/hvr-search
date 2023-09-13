@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 
 import { useThemeStore } from "../store/themeStore";
 import { createEmotionCache } from "../styles/setup/createEmotionCache";
+import { UserDetails } from "../components/user-details";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -41,6 +42,7 @@ export default function MyApp({
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Analytics />
+          <UserDetails />
           <Component {...pageProps} />
         </ThemeProvider>
       </StyledEngineProvider>
