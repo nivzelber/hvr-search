@@ -1,3 +1,4 @@
+import { Logger } from "next-axiom";
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 
@@ -12,7 +13,11 @@ export const useSearchStore = create<SearchState>()(
     persist(
       set => ({
         search: "",
-        setSearch: search => set(_state => ({ search })),
+        setSearch: search => {
+          const logger = new Logger();
+          logger.info("SEARCH", { search, pathname: window.location.pathname });
+          return set(_state => ({ search }));
+        },
         clearSearch: () => set(_state => ({ search: "" }))
       }),
       {
