@@ -6,7 +6,7 @@ interface BranchLinkProps {
 
 export const BranchLink = ({ href, children }: PropsWithChildren<BranchLinkProps>) => (
   // '//' is needed since most URL's come without the http(s) prefix
-  <a href={"//" + href} target="_blank" rel="noreferrer">
+  <a href={"//" + href} target="_blank" rel="noopener noreferrer">
     {children}
   </a>
 );
