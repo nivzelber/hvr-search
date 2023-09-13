@@ -28,10 +28,9 @@ export const BlueCard = ({ branches }: BlueCardProps) => {
         longitude: Number(branch.longitude),
         latitude: Number(branch.latitude)
       };
-      const asd = metersBetween(userLocation, branchLocation);
       return {
         ...branch,
-        distanceFromUser: asd
+        distanceFromUser: metersBetween(userLocation, branchLocation)
       };
     });
   }
