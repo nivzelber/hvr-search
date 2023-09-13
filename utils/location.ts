@@ -5,6 +5,11 @@ import { DISTANCE_DIGITS_AFTER_THE_DOT } from "../common/constants";
 
 import { isAndroid, isIOS } from "./platform";
 
+// for some reason this is the only working way for null checking GeoPosition objects
+export const isGeolocation = (
+  geolocation?: GeolocationPosition
+): geolocation is GeolocationPosition => geolocation?.coords !== undefined;
+
 /**
  * As of 25-04-23, IOS does not yet support 'geo' API
  * In addition, desktop navigation apps are usually not preferred,

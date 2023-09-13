@@ -1,11 +1,13 @@
-import { useMemo } from "react";
+import { GridSortModel } from "@mui/x-data-grid";
+import { useEffect, useMemo, useState } from "react";
 
 import { useUserStore } from "../../../store/userStore";
 import { Location } from "../../../types/location";
-import { metersBetween } from "../../../utils/location";
+import { isGeolocation, metersBetween } from "../../../utils/location";
 import { BranchesTable } from "../../branches-table";
 
 import { Branch } from "./branch";
+import { defaultSortingModel } from "./consts";
 import { columns } from "./table-defs";
 
 interface BlueCardProps {
@@ -16,8 +18,7 @@ export const BlueCard = ({ branches }: BlueCardProps) => {
   const { geolocation } = useUserStore();
 
   const rows = useMemo(() => {
-    // for some reason this is the only working way for null checking GeoPosition objects
-    if (geolocation?.coords === undefined) return branches;
+    if (!isGeolocation(geolocation)) return branches;
 
     const userLocation: Location = {
       longitude: geolocation.coords.longitude,
@@ -36,14 +37,27 @@ export const BlueCard = ({ branches }: BlueCardProps) => {
     });
   }, [geolocation]);
 
+  const [sortModel, setSortModel] = useState<GridSortModel>(defaultSortingModel);
+
+  useEffect(() => {
+    if (!isGeolocation(geolocation)) {
+      setSortModel(defaultSortingModel);
+    } else {
+      setSortModel([
+        {
+          field: "distanceFromUser",
+          sort: "asc"
+        }
+      ]);
+    }
+  }, [geolocation]);
+
   return (
     <BranchesTable
       rows={rows}
       columns={columns}
+      sortModel={sortModel}
       initialState={{
-        sorting: {
-          sortModel: [{ field: "distanceFromUser", sort: "asc" }]
-        },
         columns: {
           columnVisibilityModel: {
             distanceFromUser: false
