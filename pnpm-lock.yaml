@@ -35,6 +35,9 @@ dependencies:
   haversine-distance:
     specifier: ^1.2.1
     version: 1.2.1
+  lodash:
+    specifier: ^4.17.21
+    version: 4.17.21
   next:
     specifier: 12.2.5
     version: 12.2.5(@babel/core@7.22.17)(react-dom@18.2.0)(react@18.2.0)
