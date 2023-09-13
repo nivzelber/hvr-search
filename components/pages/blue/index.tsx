@@ -1,9 +1,8 @@
 import { GridSortModel } from "@mui/x-data-grid";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useUserStore } from "../../../store/userStore";
-import { Location } from "../../../types/location";
-import { isGeolocation, metersBetween } from "../../../utils/location";
+import { isGeolocation } from "../../../utils/location";
 import { BranchesTable } from "../../branches-table";
 
 import { Branch } from "./branch";
@@ -16,26 +15,6 @@ interface BlueCardProps {
 
 export const BlueCard = ({ branches }: BlueCardProps) => {
   const { geolocation } = useUserStore();
-
-  const rows = useMemo(() => {
-    if (!isGeolocation(geolocation)) return branches;
-
-    const userLocation: Location = {
-      longitude: geolocation.coords.longitude,
-      latitude: geolocation.coords.latitude
-    };
-
-    return branches.map(branch => {
-      const branchLocation: Location = {
-        longitude: Number(branch.longitude),
-        latitude: Number(branch.latitude)
-      };
-      return {
-        ...branch,
-        distanceFromUser: metersBetween(userLocation, branchLocation)
-      };
-    });
-  }, [geolocation]);
 
   const [sortModel, setSortModel] = useState<GridSortModel>(defaultSortingModel);
 
@@ -54,7 +33,7 @@ export const BlueCard = ({ branches }: BlueCardProps) => {
 
   return (
     <BranchesTable
-      rows={rows}
+      rows={branches}
       columns={columns}
       sortModel={sortModel}
       initialState={{

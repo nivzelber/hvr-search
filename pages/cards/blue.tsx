@@ -6,13 +6,14 @@ import { BRANCHES_REVALIDATE_INTERVAL } from "../../common/constants";
 import { Layout } from "../../components/layout";
 import { BlueCard } from "../../components/pages/blue";
 import { BRANCHES_URL } from "../../components/pages/blue/consts";
+import { useExtendedBranches } from "../../components/pages/blue/useExtendedBranches";
 import { useFilters } from "../../components/pages/blue/useFilters";
 import { useBranchesSearch } from "../../hooks/useBranchesSearch";
 import { useSetThemeOnMount } from "../../hooks/useSetThemeOnMount";
 
 import type { NextPage } from "next";
 
-import type { RawBranch, Branch } from "../../components/pages/blue/branch";
+import type { RawBranch, Branch, ExtendedBranch } from "../../components/pages/blue/branch";
 interface StaticProps {
   branches: Branch[];
 }
@@ -38,9 +39,11 @@ type Props = StaticProps & {};
 const BlueCardPage: NextPage<Props> = ({ branches }) => {
   useSetThemeOnMount("blue");
 
-  const { filteredBranches, FiltersForm } = useFilters(branches);
+  const extendedBranches = useExtendedBranches(branches);
 
-  const searchedRows = useBranchesSearch<Branch>({
+  const { filteredBranches, FiltersForm } = useFilters(extendedBranches);
+
+  const searchedRows = useBranchesSearch<ExtendedBranch>({
     branches: filteredBranches,
     filterParams: ["name", "desc", "city", "address", "f_name"]
   });
