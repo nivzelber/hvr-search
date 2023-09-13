@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import { BranchLink } from "../../../components/branches-table";
 import { makeImageLoader } from "../../../utils/images/makeImageLoader";
-import { buildAddressLink } from "../../../utils/location";
+import { buildAddressLink, toDistanceString } from "../../../utils/location";
 import { isMediumScreen } from "../../../utils/platform";
 import { CellWrapper } from "../../branches-table";
 import { commonColumnProperties } from "../../branches-table/common";
@@ -49,14 +49,21 @@ const baseColumns: GridColDef<ExtendedBranch>[] = [
     renderCell: ({ row: branch }) => {
       return (
         <CellWrapper>
-          <a href={buildAddressLink(`${branch.address} ${branch.city}`)}>
-            {branch.city} | {branch.address}
+          <a
+            href={buildAddressLink(`${branch.address} ${branch.city}`)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {branch.city} | {branch.address}{" "}
+            {branch.distanceFromUser && <> | {toDistanceString(branch.distanceFromUser)}</>}
           </a>
           <a href={`tel:${branch.phone}`}>{branch.phone}</a>
-          {branch.distanceFromUser && <p>{branch.distanceFromUser}</p>}
         </CellWrapper>
       );
     }
+  },
+  {
+    field: "distanceFromUser"
   }
 ];
 

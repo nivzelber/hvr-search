@@ -14,3 +14,7 @@ export const buildAddressLink = (address: string) => geoLink + address.split(" "
 
 export const metersBetween = (location1: Location, location2: Location) =>
   haversineDistance(location1, location2);
+
+
+// global distance representation
+export const toDistanceString = (distance: number) => `${(distance / 1000).toFixed(2)} ק"מ`

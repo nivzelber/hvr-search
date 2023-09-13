@@ -41,7 +41,12 @@ export const BlueCard = ({ branches }: BlueCardProps) => {
       columns={columns}
       initialState={{
         sorting: {
-          sortModel: [{ field: "name", sort: "asc" }]
+          sortModel: [{ field: "distanceFromUser", sort: "asc" }],
+        },
+        columns: {
+          columnVisibilityModel: {
+            distanceFromUser: false
+          }
         }
       }}
     />
