@@ -18,7 +18,6 @@ export const BlueCard = ({ branches }: BlueCardProps) => {
   const rows = useMemo(() => {
     // for some reason this is the only working way for null checking GeoPosition objects
     if (geolocation?.coords === undefined) return branches;
-    console.log(geolocation);
 
     const userLocation: Location = {
       longitude: geolocation.coords.longitude,
