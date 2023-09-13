@@ -8,9 +8,9 @@ import { AppProps } from "next/app";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 
+import { UserDetails } from "../components/user-details";
 import { useThemeStore } from "../store/themeStore";
 import { createEmotionCache } from "../styles/setup/createEmotionCache";
-import { UserDetails } from "../components/user-details";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();

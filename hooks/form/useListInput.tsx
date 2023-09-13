@@ -1,6 +1,6 @@
 import { Autocomplete, TextField } from "@mui/material";
 import { uniq } from "lodash";
-import { useState, useMemo } from "react";
+import { useMemo, useState } from "react";
 
 export const useListInput = <Item extends Record<string, string>>(items: Item[], key: keyof Item, label: string ) => {
   const options = useMemo(

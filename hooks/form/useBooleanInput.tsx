@@ -1,5 +1,5 @@
 import { FormControlLabel, Switch } from "@mui/material";
-import { useState, ChangeEvent } from "react";
+import { ChangeEvent, useState } from "react";
 
 export const useBooleanInput = (initialState: boolean, label: string ) => {
     const [ value, setValue ] = useState(initialState);
