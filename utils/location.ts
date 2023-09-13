@@ -1,6 +1,8 @@
 import type { Location } from "../types/location";
 import haversineDistance from "haversine-distance";
 
+import { DISTANCE_DIGITS_AFTER_THE_DOT } from "../common/constants";
+
 import { isAndroid, isIOS } from "./platform";
 
 /**
@@ -15,6 +17,6 @@ export const buildAddressLink = (address: string) => geoLink + address.split(" "
 export const metersBetween = (location1: Location, location2: Location) =>
   haversineDistance(location1, location2);
 
-
 // global distance representation
-export const toDistanceString = (distance: number) => `${(distance / 1000).toFixed(2)} ק"מ`
+export const toDistanceString = (distance: number) =>
+  `${(distance / 1000).toFixed(DISTANCE_DIGITS_AFTER_THE_DOT)} ק"מ`;
