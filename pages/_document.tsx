@@ -14,6 +14,11 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
           {(this.props as any).emotionStyleTags}
+
+          <meta name="application-name" content="מחפשים בחבר" />
+          <link rel="icon" type="image/png" sizes="139x104" href="/favicon.png" />
+          <link rel="manifest" href="/manifest.json" />
+          <link rel="shortcut icon" href="/favicon.ico" />
         </Head>
         <body>
           <Main />

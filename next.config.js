@@ -7,5 +7,7 @@ const nextConfig = {
 const withPWA = require("next-pwa")({
   dest: "public"
 });
+const { withAxiom } = require("next-axiom");
 
-module.exports = process.env.NODE_ENV !== "development" ? withPWA(nextConfig) : nextConfig;
+module.exports =
+  process.env.NODE_ENV !== "development" ? withAxiom(withPWA(nextConfig)) : nextConfig;
