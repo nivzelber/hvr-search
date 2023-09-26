@@ -10,13 +10,12 @@ export interface RawBranch {
   phone: string;
   category: string;
   type?: string;
-  kosher: string;
-  f_kosher: "N" | "Y";
+  kosher: "" | "כשר" | "למהדרין" | "כשר למהדרין";
   is_new: string;
   website: string;
   search_words: string;
   f_name: string; // used for full text search
-  f_is_delivery: "N" | "Y";
+  delivery: "ישיבה במסעדה" | "ישיבה במסעדה,משלוחים" | "איסוף עצמי,משלוחים";
   latitude: string;
   longitude: string;
 }

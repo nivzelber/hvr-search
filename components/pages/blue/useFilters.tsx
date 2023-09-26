@@ -21,8 +21,8 @@ export const useFilters = (branches: Branch[]) => {
     let filteredBranches = branches;
 
     if (delivery)
-      filteredBranches = filteredBranches.filter(branch => branch.f_is_delivery === "Y");
-    if (kosher) filteredBranches = filteredBranches.filter(branch => branch.f_kosher === "Y");
+      filteredBranches = filteredBranches.filter(branch => branch.delivery.includes("משלוחים"));
+    if (kosher) filteredBranches = filteredBranches.filter(branch => branch.kosher !== "");
     if (category)
       filteredBranches = filteredBranches.filter(branch => branch.category === category);
     if (area) filteredBranches = filteredBranches.filter(branch => branch.area === area);
