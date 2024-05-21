@@ -6,8 +6,11 @@ export const useListInput = <Item extends Record<string, string>>(
   items: Item[],
   key: keyof Item,
   label: string
-) => {
-  const options = useMemo(() => uniq(items.map(item => item[key])).sort(), [items, key]);
+): [string | null, JSX.Element] => {
+  const options = useMemo(
+    () => uniq(items.flatMap(item => item[key].split(","))).sort(),
+    [items, key]
+  );
 
   const [value, setValue] = useState<string | null>(null);
   const handleCategoryChange = (_: unknown, newValue: string | null) => {

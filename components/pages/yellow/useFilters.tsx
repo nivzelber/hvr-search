@@ -19,7 +19,9 @@ export const useFilters = (branches: Branch[]) => {
 
     if (isOnline) filteredBranches = filteredBranches.filter(branch => branch.is_online === "Y");
     if (category)
-      filteredBranches = filteredBranches.filter(branch => branch.company_category === category);
+      filteredBranches = filteredBranches.filter(branch =>
+        branch.company_category.includes(category)
+      );
 
     return filteredBranches;
   }, [branches, category, isOnline]);

@@ -24,7 +24,7 @@ export const useFilters = (branches: Branch[]) => {
       filteredBranches = filteredBranches.filter(branch => branch.delivery.includes("משלוחים"));
     if (kosher) filteredBranches = filteredBranches.filter(branch => branch.kosher !== "");
     if (category)
-      filteredBranches = filteredBranches.filter(branch => branch.category === category);
+      filteredBranches = filteredBranches.filter(branch => branch.category.includes(category));
     if (area) filteredBranches = filteredBranches.filter(branch => branch.area === area);
     if (city) filteredBranches = filteredBranches.filter(branch => branch.city === city);
 
